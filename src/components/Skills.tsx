@@ -35,20 +35,20 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 bg-theme-light-gray">
+    <section id="skills" className="py-16 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Skills</h2>
+        <h2 className="section-title text-white">Skills</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="shadow-md hover:shadow-lg transition-shadow">
+            <Card key={index} className="shadow-md hover:shadow-lg transition-shadow bg-white/10 backdrop-blur-md border border-white/20">
               <CardContent className="pt-6">
-                <h3 className="text-xl font-bold text-theme-dark-blue mb-3">{category.category}</h3>
+                <h3 className="text-xl font-bold text-white mb-3">{category.category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, idx) => (
                     <span 
                       key={idx} 
-                      className="bg-white px-3 py-1 rounded-full text-sm text-theme-blue border border-theme-blue shadow-sm"
+                      className="bg-black/30 px-3 py-1 rounded-full text-sm text-theme-blue border border-theme-blue/30 shadow-sm"
                     >
                       {skill}
                     </span>

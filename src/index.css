@@ -75,7 +75,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground antialiased;
   }
 
   html {
@@ -94,5 +94,15 @@
   
   .section-title {
     @apply text-3xl font-bold font-heading text-theme-dark-blue mb-6 relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-1 after:bg-theme-blue after:bottom-0 after:left-0 pb-2;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }

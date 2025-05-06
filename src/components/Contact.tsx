@@ -28,23 +28,23 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="py-16 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Contact Me</h2>
+        <h2 className="section-title text-white">Contact Me</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
           <div className="lg:col-span-1 space-y-4">
             {contactInfo.map((item, index) => (
-              <Card key={index} className="shadow-md hover:shadow-lg transition-shadow">
+              <Card key={index} className="shadow-md hover:shadow-lg transition-shadow bg-white/10 backdrop-blur-md border border-white/20">
                 <CardContent className="flex items-center gap-4 p-4">
                   <div className="w-10 h-10 rounded-full bg-theme-blue flex items-center justify-center text-white flex-shrink-0">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-theme-gray">{item.label}</p>
+                    <p className="text-sm text-white/70">{item.label}</p>
                     <a 
                       href={item.href}
-                      className="text-theme-dark-blue font-medium hover:text-theme-blue transition-colors"
+                      className="text-white font-medium hover:text-theme-blue transition-colors"
                       target={item.label === "GitHub" ? "_blank" : undefined}
                       rel={item.label === "GitHub" ? "noopener noreferrer" : undefined}
                     >
@@ -57,51 +57,51 @@ const Contact = () => {
           </div>
           
           <div className="lg:col-span-2">
-            <Card className="shadow-md">
+            <Card className="shadow-md bg-white/10 backdrop-blur-md border border-white/20">
               <CardContent className="p-6">
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-theme-gray mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium text-white/70 mb-1">
                         Name
                       </label>
                       <Input 
                         id="name" 
                         placeholder="Your name" 
-                        className="border-theme-gray/30 focus-visible:ring-theme-blue" 
+                        className="border-white/30 bg-black/20 text-white focus-visible:ring-theme-blue" 
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-theme-gray mb-1">
+                      <label htmlFor="email" className="block text-sm font-medium text-white/70 mb-1">
                         Email
                       </label>
                       <Input 
                         id="email" 
                         type="email" 
                         placeholder="Your email" 
-                        className="border-theme-gray/30 focus-visible:ring-theme-blue" 
+                        className="border-white/30 bg-black/20 text-white focus-visible:ring-theme-blue" 
                       />
                     </div>
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="subject" className="block text-sm font-medium text-theme-gray mb-1">
+                    <label htmlFor="subject" className="block text-sm font-medium text-white/70 mb-1">
                       Subject
                     </label>
                     <Input 
                       id="subject" 
                       placeholder="Subject" 
-                      className="border-theme-gray/30 focus-visible:ring-theme-blue" 
+                      className="border-white/30 bg-black/20 text-white focus-visible:ring-theme-blue" 
                     />
                   </div>
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-theme-gray mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-white/70 mb-1">
                       Message
                     </label>
                     <Textarea 
                       id="message" 
                       placeholder="Your message" 
                       rows={5}
-                      className="border-theme-gray/30 focus-visible:ring-theme-blue" 
+                      className="border-white/30 bg-black/20 text-white focus-visible:ring-theme-blue" 
                     />
                   </div>
                   <Button className="w-full bg-theme-blue hover:bg-theme-dark-blue">

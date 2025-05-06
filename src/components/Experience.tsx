@@ -1,16 +1,8 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-interface ExperienceItem {
-  company: string;
-  position: string;
-  location: string;
-  period: string;
-  responsibilities: string[];
-}
+import { Timeline } from "@/components/ui/timeline";
 
 const Experience = () => {
-  const experiences: ExperienceItem[] = [
+  const experiences = [
     {
       company: "NAVI TECHNOLOGIES",
       position: "Business Analyst",
@@ -58,32 +50,12 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 bg-theme-light-gray">
+    <section id="experience" className="py-16 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Work Experience</h2>
         
-        <div className="space-y-6 mt-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-theme-blue">
-              <CardHeader className="pb-2">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                  <CardTitle className="text-xl font-bold text-theme-dark-blue">
-                    {exp.company} | <span className="text-theme-blue">{exp.position}</span>
-                  </CardTitle>
-                  <div className="text-theme-gray text-sm mt-1 md:mt-0">
-                    {exp.location} | {exp.period}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc pl-5 space-y-2 text-theme-gray">
-                  {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx}>{resp}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="mt-8">
+          <Timeline items={experiences} />
         </div>
       </div>
     </section>

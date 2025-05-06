@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Header = () => {
@@ -29,11 +28,22 @@ const Header = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const sectionId = href.replace('#', '');
+    const section = document.getElementById(sectionId);
+    
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50 backdrop-blur-md border-b border-white/10' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <a href="#home" className="text-2xl font-bold text-theme-dark-blue font-heading">
+          <a href="#home" className="text-2xl font-bold text-white font-heading" onClick={(e) => handleNavClick(e, '#home')}>
             Suyash
           </a>
 
@@ -43,7 +53,8 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-theme-dark-gray hover:text-theme-blue font-medium transition-colors"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-white/80 hover:text-white font-medium transition-colors"
               >
                 {item.name}
               </a>
@@ -52,7 +63,7 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button 
-            className="md:hidden text-theme-dark-blue"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -62,14 +73,14 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
+        <div className="md:hidden bg-black/90 backdrop-blur-md">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-theme-dark-gray hover:text-theme-blue font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="block px-3 py-2 text-white/80 hover:text-white font-medium transition-colors"
               >
                 {item.name}
               </a>

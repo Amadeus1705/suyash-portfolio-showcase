@@ -1,10 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Github, Mail, Phone } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-blue-50 to-white">
+    <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-3/5 animate-fade-in">
@@ -60,9 +61,12 @@ const Hero = () => {
           </div>
           
           <div className="md:w-2/5 flex justify-center animate-fade-in">
-            <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-tr from-theme-blue to-theme-light-blue rounded-full overflow-hidden flex items-center justify-center text-white text-6xl font-bold shadow-lg">
-              SS
-            </div>
+            <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-theme-blue shadow-xl">
+              <AvatarImage src="/lovable-uploads/bd4b715a-7bd0-4d66-93bf-71244cfe2da0.png" alt="Suyash Sharma" />
+              <AvatarFallback className="bg-gradient-to-tr from-theme-blue to-theme-light-blue text-white text-6xl font-bold">
+                SS
+              </AvatarFallback>
+            </Avatar>
           </div>
         </div>
       </div>
