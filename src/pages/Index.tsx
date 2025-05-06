@@ -1,6 +1,5 @@
 
 import { useState, useEffect, useRef } from "react";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -8,7 +7,6 @@ import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { BackgroundCircles } from "@/components/ui/background-circles";
 import { Dock } from "@/components/Dock";
 import { SparklesBackground } from "@/components/ui/sparkles";
 
@@ -80,9 +78,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       <SparklesBackground />
-      <main className="flex-1">
+      <main className="flex-1 snap-y snap-mandatory overflow-y-auto">
         <Hero />
         <About />
         <Experience />

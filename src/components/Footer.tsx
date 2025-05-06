@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h3 className="text-xl font-bold mb-2">Suyash Sharma</h3>
-            <p className="text-white/70">Business Analyst & Data Scientist</p>
+            <p className="text-white/80">Business Analyst & Data Scientist</p>
           </div>
           
           <div className="flex items-center gap-4">
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-white/10 mt-6 pt-6 text-center text-white/70">
+        <div className="border-t border-white/10 mt-6 pt-6 text-center text-white/80">
           <p>&copy; {currentYear} Suyash Sharma. All rights reserved.</p>
         </div>
       </div>

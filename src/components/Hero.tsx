@@ -22,7 +22,7 @@ const Hero = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a href="#contact">
-                <Button className="w-full sm:w-auto glass-card hover:bg-white/20 border-white/30">
+                <Button className="w-full sm:w-auto glass-card hover:bg-white/20 border-white/30 text-white">
                   Contact Me
                 </Button>
               </a>
@@ -61,12 +61,18 @@ const Hero = () => {
           </div>
           
           <div className="md:w-2/5 flex justify-center animate-fade-in">
-            <Avatar className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white/20 shadow-xl">
-              <AvatarImage src="/lovable-uploads/dd2d47dc-83e1-4873-bc66-240cebc48cbc.png" alt="Suyash Sharma" />
-              <AvatarFallback className="bg-black text-white text-6xl font-bold">
-                SS
-              </AvatarFallback>
-            </Avatar>
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white/20 shadow-xl overflow-hidden">
+              <Avatar className="w-full h-full">
+                <AvatarImage 
+                  src="/lovable-uploads/dd2d47dc-83e1-4873-bc66-240cebc48cbc.png" 
+                  alt="Suyash Sharma"
+                  className="object-cover object-center w-full h-full"
+                />
+                <AvatarFallback className="bg-black text-white text-6xl font-bold">
+                  SS
+                </AvatarFallback>
+              </Avatar>
+            </div>
           </div>
         </div>
       </div>
