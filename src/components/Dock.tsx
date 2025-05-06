@@ -17,12 +17,12 @@ const DockItem = ({ icon, label, href, isActive, onClick }: DockItemProps) => {
       onClick={onClick}
       className={cn(
         "flex flex-col items-center justify-center p-2 rounded-full transition-all duration-300 hover:bg-white/10",
-        isActive ? "text-white bg-white/20" : "text-white/70"
+        isActive ? "text-white" : "text-white/70"
       )}
     >
       <div className={cn(
         "flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300",
-        isActive ? "bg-theme-blue text-white scale-110" : "bg-gray-800 text-white/80 hover:scale-105"
+        isActive ? "bg-white/20 text-white scale-110" : "bg-black/60 text-white/80 hover:scale-105"
       )}>
         {icon}
       </div>
@@ -68,7 +68,7 @@ export function Dock({ activeSection, onNavigate }: DockProps) {
 
   return (
     <div className={cn(
-      "fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 shadow-lg",
+      "fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 px-4 py-2 rounded-full glass-card",
       visible ? "bottom-6" : "-bottom-20"
     )}>
       <div className="flex items-center space-x-1 sm:space-x-2">

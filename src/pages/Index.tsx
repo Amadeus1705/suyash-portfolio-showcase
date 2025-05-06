@@ -10,6 +10,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { BackgroundCircles } from "@/components/ui/background-circles";
 import { Dock } from "@/components/Dock";
+import { SparklesBackground } from "@/components/ui/sparkles";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -80,8 +81,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      <BackgroundCircles variant="octonary" />
-      <Header />
+      <SparklesBackground />
       <main className="flex-1">
         <Hero />
         <About />
