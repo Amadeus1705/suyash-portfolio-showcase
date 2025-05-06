@@ -2,8 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
+import Timeline from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -16,7 +15,7 @@ const Index = () => {
   const scrolling = useRef(false);
 
   useEffect(() => {
-    const sections = ["home", "about", "experience", "education", "skills", "contact"];
+    const sections = ["home", "about", "experience", "skills", "contact"];
     
     sections.forEach(section => {
       sectionsRef.current[section] = document.getElementById(section);
@@ -80,11 +79,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <SparklesBackground />
-      <main className="flex-1 snap-y snap-mandatory overflow-y-auto">
+      <main className="flex-1">
         <Hero />
         <About />
-        <Experience />
-        <Education />
+        <Timeline />
         <Skills />
         <Contact />
       </main>

@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Home, User, Briefcase, GraduationCap, Code, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 
-interface DockItemProps {
+interface SidebarItemProps {
   icon: React.ReactNode;
   label: string;
   href: string;
@@ -11,22 +11,22 @@ interface DockItemProps {
   onClick: () => void;
 }
 
-const DockItem = ({ icon, label, href, isActive, onClick }: DockItemProps) => {
+const SidebarItem = ({ icon, label, href, isActive, onClick }: SidebarItemProps) => {
   return (
     <button
       onClick={onClick}
       className={cn(
-        "flex flex-col items-center justify-center p-2 rounded-full transition-all duration-300 hover:bg-white/10",
-        isActive ? "text-white" : "text-white/70"
+        "flex items-center gap-3 p-3 rounded-lg transition-all duration-300 w-full hover:bg-white/10",
+        isActive ? "bg-white/20 text-white" : "text-white/70"
       )}
     >
       <div className={cn(
-        "flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300",
-        isActive ? "bg-white/20 text-white scale-110" : "bg-black/60 text-white/80 hover:scale-105"
+        "flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300",
+        isActive ? "bg-white/20 text-white" : "bg-black/60 text-white/80"
       )}>
         {icon}
       </div>
-      <span className="text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity">{label}</span>
+      <span className="text-sm">{label}</span>
     </button>
   );
 };
@@ -37,6 +37,7 @@ interface DockProps {
 }
 
 export function Dock({ activeSection, onNavigate }: DockProps) {
+  const [isHovered, setIsHovered] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -58,22 +59,26 @@ export function Dock({ activeSection, onNavigate }: DockProps) {
   }, [lastScrollY]);
 
   const sections = [
-    { id: "home", label: "Home", icon: <Home size={24} /> },
-    { id: "about", label: "About", icon: <User size={24} /> },
-    { id: "experience", label: "Experience", icon: <Briefcase size={24} /> },
-    { id: "education", label: "Education", icon: <GraduationCap size={24} /> },
-    { id: "skills", label: "Skills", icon: <Code size={24} /> },
-    { id: "contact", label: "Contact", icon: <Mail size={24} /> },
+    { id: "home", label: "Home", icon: <Home size={20} /> },
+    { id: "about", label: "About", icon: <User size={20} /> },
+    { id: "experience", label: "Timeline", icon: <Briefcase size={20} /> },
+    { id: "skills", label: "Skills", icon: <Code size={20} /> },
+    { id: "contact", label: "Contact", icon: <Mail size={20} /> },
   ];
 
   return (
-    <div className={cn(
-      "fixed left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 px-4 py-2 rounded-full glass-card",
-      visible ? "bottom-6" : "-bottom-20"
-    )}>
-      <div className="flex items-center space-x-1 sm:space-x-2">
+    <div 
+      className={cn(
+        "fixed left-0 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 rounded-r-lg glass-card",
+        visible ? "translate-x-0" : "-translate-x-full",
+        isHovered ? "w-48" : "w-16"
+      )}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="flex flex-col py-3">
         {sections.map((section) => (
-          <DockItem
+          <SidebarItem
             key={section.id}
             icon={section.icon}
             label={section.label}
